@@ -118,6 +118,8 @@ Linux, 1核CPU, 2G内存(1G也可)
 <img width="513" alt="image" src="https://user-images.githubusercontent.com/18456518/119217849-9b56e980-bb0f-11eb-8caa-f50f9a4a9311.png">
 
 
+## 扫描入群，失效联系WX
+![image](https://user-images.githubusercontent.com/18456518/119223858-5a220200-bb2e-11eb-92f4-978b9f035aa4.png)
 
 
 
