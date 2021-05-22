@@ -1,7 +1,7 @@
 # binance-quant-robot
 数字货币，币安Binance,BTC ETH DOGE SHIB 量化交易系统 火币
 
-### 简介
+## 简介
 这是一个数字货币量化交易系统，使用的Binance币安的交易API.
 
 本系统采用双均线交易策略，两条均线出现金叉则买入，出现死叉则卖出。
@@ -24,11 +24,15 @@ python3
 由于交易所的api在大陆无法访问，需要科学上网(若无，可用[muncloud](https://www.muncloud.dog/aff.php?aff=2302))
 
 ### 使用
+
 1、获取币安API的 api_key 和 api_secret
-申请api_key地址: [币安API管理页面](https://www.binance.com/cn/usercenter/settings/api-management)
+申请api_key地址:
+[币安API管理页面](https://www.binance.com/cn/usercenter/settings/api-management)
+
 
 2、注册钉钉自定义机器人Webhook，用于推送交易信息到指定的钉钉群
 [钉钉自定义机器人注册方法](https://m.dingtalk.com/qidian/help-detail-20781541)
+
 
 3、修改app目录下的authorization文件
 
@@ -37,6 +41,7 @@ api_key='你的币安key'
 api_secret='你的币安secret'
 dingding_token = '申请钉钉群助手的token'   # 强烈建议您使用
 ```
+
 
 4、交易策略配置信息 strategyConfig.py
 设置你的配置信息：
@@ -53,10 +58,11 @@ binance_tradeCoin = "DOGE"#交易目标是 DOGE 币，
 kLine_type = '5m' # 15分钟k线类型，你可以设置为5分钟K线：5m;1小时为：1h;1天为：1d
 ```
 
+
 5、运行程序(记得先开科学上网)
-‘’‘
+```
 python robot-run.py
-’‘’
+```
 
 
 
