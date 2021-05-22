@@ -73,6 +73,18 @@ python robot-run.py
 
 
 
-## 部署
+## 服务器部署
+购买服务器，建议是海外服务器，可以访问币安API
+
+### 配置：
+Linux, 1核CPU, 2G内存(1G也可)
+
+我是在阿里云购买的日本东京服务器(传说币安服务器就在东京)
+也可选择 新加坡、香港服务器
+
+[阿里云，新人优惠](https://www.aliyun.com/activity?userCode=zs5is7pi)
+[阿里云，最新活动](https://www.aliyun.com/1111/new?userCode=zs5is7pi)
+
+
 
 
