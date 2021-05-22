@@ -9,6 +9,10 @@
 
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
+这世上，没有百分百赚钱的方式，量化交易策略只是一个辅助工具。
+
+生死有命，富贵在天！币圈有风险，入市需谨慎！！
+
 
 ## 为什么选择币安交易所
 交易的手续费看起来很少，但是随着交易次数逐步增多，手续费也是一笔不小的开支。
@@ -64,6 +68,16 @@ binance_coinBase = "USDT"#使用USDT作为基础币种，用于购买其他货�
 binance_tradeCoin = "DOGE"#交易目标是 DOGE 币，
 kLine_type = '5m' # 15分钟k线类型，你可以设置为5分钟K线：5m;1小时为：1h;1天为：1d
 ```
+当 kline 5 向上穿过 kline 60， 则执行买入。
+
+当 kline 5 向下穿过 kline 60， 则执行卖出。
+
+你可根据自己的喜好，调整 ma_x 和 ma_y 的值。 
+
+你也可以调整 kLine_type ，来选择 5分钟K线、15分钟K线、30分钟K线、1小时K线、1天K线等；
+
+不同的K线，最终效果也是不一样的。
+
 
 
 5、运行程序(记得先开科学上网)
@@ -86,6 +100,11 @@ Linux, 1核CPU, 2G内存(1G也可)
 [阿里云，新人优惠](https://www.aliyun.com/activity?userCode=zs5is7pi)
 
 [阿里云，最新活动](https://www.aliyun.com/1111/new?userCode=zs5is7pi)
+
+## 钉钉信息截图
+![image](https://user-images.githubusercontent.com/18456518/119217054-3cdb3c80-bb0a-11eb-9f66-60eb974bca46.png)
+
+
 
 
 ## 可加WX进交流群
