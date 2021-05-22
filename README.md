@@ -1,6 +1,7 @@
 # binance-quant-robot
 数字货币，币安Binance,BTC ETH DOGE SHIB 量化交易系统 火币
 
+
 ## 简介
 这是一个数字货币量化交易系统，使用的Binance币安的交易API.
 
@@ -8,7 +9,8 @@
 
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
-### 为什么选择币安交易所
+
+## 为什么选择币安交易所
 交易的手续费看起来很少，但是随着交易次数逐步增多，手续费也是一笔不小的开支。
 所以我选择了币安，手续费低的大平台交易所
 > 火币手续费 Maker 0.2% Taker 0.2%
@@ -18,19 +20,24 @@
 
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
-### 运行环境
+
+## 运行环境
 python3
 
 由于交易所的api在大陆无法访问，需要科学上网(若无，可用[muncloud](https://www.muncloud.dog/aff.php?aff=2302))
 
-### 使用
+
+## 快速使用
 
 1、获取币安API的 api_key 和 api_secret
+
 申请api_key地址:
+
 [币安API管理页面](https://www.binance.com/cn/usercenter/settings/api-management)
 
 
 2、注册钉钉自定义机器人Webhook，用于推送交易信息到指定的钉钉群
+
 [钉钉自定义机器人注册方法](https://m.dingtalk.com/qidian/help-detail-20781541)
 
 
@@ -66,6 +73,6 @@ python robot-run.py
 
 
 
-### 部署
+## 部署
 
 
