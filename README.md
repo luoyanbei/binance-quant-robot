@@ -1,5 +1,6 @@
 # binance-quant-robot
-数字货币，币安Binance,BTC ETH DOGE SHIB 量化交易系统 火币
+数字货币，币安Binance, 比特币BTC 以太坊ETH 狗币DOGE 屎币SHIB 量化交易系统 火币 OKEX
+
 
 
 ## 简介
@@ -14,6 +15,7 @@
 生死有命，富贵在天！币圈有风险，入市需谨慎！！
 
 
+
 ## 为什么选择币安交易所
 交易的手续费看起来很少，但是随着交易次数逐步增多，手续费也是一笔不小的开支。
 所以我选择了币安，手续费低的大平台交易所
@@ -25,10 +27,12 @@
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
 
+
 ## 运行环境
 python3
 
 由于交易所的api在大陆无法访问，需要科学上网(若无，可用[muncloud](https://www.muncloud.dog/aff.php?aff=2302))
+
 
 
 ## 快速使用
@@ -101,8 +105,11 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 [阿里云，最新活动](https://www.aliyun.com/1111/new?userCode=zs5is7pi)
 
+
+
 ## 钉钉信息截图
 ![image](https://user-images.githubusercontent.com/18456518/119217054-3cdb3c80-bb0a-11eb-9f66-60eb974bca46.png)
+
 
 
 
