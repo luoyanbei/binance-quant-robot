@@ -87,106 +87,6 @@ class DoubleAverageLines:
 
         return None
 
-    def trade_stock(self, ma_x_line, ma_y_line, code, name, market, start_date, first_money, df):
-
-        print('\n' + name + ' ' + code + ' 均线 ' + str(ma_x_line) + ' 和 ' + str(ma_y_line) + ' :')
-
-        df[["openTime"]] = df[["openTime"]].astype(str)  # int类型 转换 成str类型，否则会被当做时间戳使用，造成时间错误
-        df[["openTime2"]] = df[["openTime2"]].astype(str)  # int类型 转换 成str类型，否则会被当做时间戳使用，造成时间错误
-
-        # print("===========================================\n")
-        df['openTime'] = pd.to_datetime(df['openTime'])
-        df['openTime2'] = pd.to_datetime(df['openTime2'])
-
-        df.set_index('openTime2', inplace=True)
-        df = df.sort_index(ascending=True)
-
-        # 求出均线
-        maX = df['closePrice'].rolling(ma_x_line).mean()
-        maY = df['closePrice'].rolling(ma_y_line).mean()
-
-        df = df[ma_y_line:]  # 这个切片很重要，否则会报错，因为数据不匹配
-        # 因为 ma_x_line < ma_y_line ,所以均线 切到 ma_y_line
-        maX = maX[ma_y_line:]  # 切片，与 df 数据条数保持一致
-        maY = maY[ma_y_line:]  # 切片，与 df 数据条数保持一致
-
-
-        print("数据切片：")
-        for index, row in df.iterrows():
-            print(str(row["openTime"]) + "\t" +row["openPrice"] + "\t" +row["maxPrice"] + "\t"+row["minPrice"] + "\t"+row["closePrice"] + "\t"+str(row["closeTime"]) + "\t")
-
-        print("-------------------------------------------------------\n")
-        s1 = maX < maY  # 得到 bool 类型的 Series
-        s2 = maX > maY
-
-        death_ex = s1 & s2.shift(1)  # 判定死叉的条件
-        death_date = df.loc[death_ex].index  # 死叉对应的日期
-
-        golden_ex = ~(s1 | s2.shift(1))  # 判断金叉的条件
-        golden_record = df.loc[golden_ex]
-        golden_date = golden_record.index  # 金叉的日期
-
-        s1 = pd.Series(data=1, index=golden_date)  # 1 作为金叉的标识
-        s2 = pd.Series(data=0, index=death_date)  # 0 作为死叉的标识
-
-        s = s1.append(s2)  # 合并
-        s = s.sort_index(ascending=True)  # 排序
-
-        # print("金叉和死叉对应的时间：")
-        # print(s)
-
-        money = first_money
-
-        hold = 0  # 持有的股数
-
-        trade_buy_price = 0
-
-        for i in range(0, len(s)):
-            if s[i] == 1:
-                time = s.index[i]
-                close_price = float(df.loc[time]['closePrice'])  # 收盘价
-                # print(open_price)
-                hand_count = money // (close_price)  # 最多买入多少
-                hold = hand_count
-
-                trade_buy_price = close_price  # 记录买入的价格
-                str_date = str(time)
-                print(str_date + '\t' + name + "\t" + "买入" + str(hand_count) + "个\t" + str(round(close_price, 4)))
-
-                money -= (hold * close_price)
-            else:
-                # 卖出股票的单价
-                death_time = s.index[i]
-                p_death = float(df.loc[death_time]['closePrice'])
-                str_date = str(death_time)
-
-                # 利润
-                profit_price = 0  # 差价
-                if trade_buy_price > 0:
-                    profit_price = p_death - trade_buy_price
-
-                print(str_date + '\t' + name + "\t" + "卖出" + str(hand_count) + "个\t" + str(
-                    round(p_death, 4)) + '\t' + '差价 ' + str(round(profit_price, 4)) + '\t' + '盈利 ' + str(
-                    round(profit_price * hold, 4)))
-
-                money += (p_death * hold)
-                hold = 0
-                trade_buy_price = 0
-
-        print("剩余金额：" + str(round(money,4)))
-
-        last_money = money
-        if hold > 0:
-            last_day_close_price = float(df['closePrice'][-1])
-            last_money = last_day_close_price * hold + money
-
-        print("剩余总资产：" + str(round(last_money, 4)))
-
-        print("===========================================\n")
-        # # 画图
-        # plt.plot(maX)
-        # plt.plot(maY)
-        # plt.show()
 
     def release_trade_stock(self, ma_x_line, ma_y_line, code, df):
 
@@ -267,7 +167,7 @@ class DoubleAverageLines:
                 print(str_date + "\t" + "买入" + code + "\t" + str(round(close_price, 8))+"---"+str(isRightTime))
                 if isRightTime:
                     print("release_trade_stock---buy")
-                    return "buy"
+                    return "buy,"+str(open_time)
 
             else:
                 # 卖出股票的单价

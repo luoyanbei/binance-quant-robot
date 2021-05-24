@@ -10,27 +10,22 @@ import datetime
 import schedule
 import math
 import json,os
-from strategyConfig import binance_market,binance_coinBase,binance_tradeCoin
+from strategyConfig import binance_market,binance_coinBase,binance_tradeCoin,binance_coinBase_count
 
 
-orderManager = OrderManager(binance_coinBase, binance_tradeCoin, binance_market)
-
-
-orderManager_SHIB = OrderManager(binance_coinBase, "BTC", binance_market)
+orderManager = OrderManager(binance_coinBase, binance_coinBase_count,binance_tradeCoin, binance_market)
 
 
 
 def binance_func():
     orderManager.binance_func()
-    # time.sleep(10)
-    # orderManager_SHIB.binance_func()
 
 
 # 创建循环任务
 def tasklist():
     #清空任务
     schedule.clear()
-    #创建一个按秒间隔执行任务
+
     # schedule.every().hours.at("04:05").do(binance_func)
     # schedule.every().hours.at("09:10").do(binance_func)
     # schedule.every().hours.at("14:10").do(binance_func)
@@ -46,10 +41,6 @@ def tasklist():
 
     schedule.every(5).minutes.do(binance_func)
 
-    # schedule.every().hours.at("12:05").do(binance_func)
-    # schedule.every().hours.at("27:10").do(binance_func)
-    # schedule.every().hours.at("42:15").do(binance_func)
-    # schedule.every().hours.at("57:20").do(binance_func)
 
 
     while True:
