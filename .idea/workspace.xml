@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22256a3e-9ccd-4357-9740-0a9a6a62d48f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/binance-quant-robot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DoubleAverageLines_static.py" beforeDir="false" afterPath="$PROJECT_DIR$/DoubleAverageLines_static.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/OrderManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robot-run.py" beforeDir="false" afterPath="$PROJECT_DIR$/robot-run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strategyConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/strategyConfig.py" afterDir="false" />
@@ -24,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot-run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="419">
+              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding>
                 <element signature="e#24#61#0" expanded="true" />
               </folding>
@@ -47,14 +42,15 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/OrderManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+            <state relative-caret-position="253">
+              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
               <folding>
                 <element signature="e#25#62#0" expanded="true" />
-                <element signature="e#512#1658#0" />
+                <element signature="e#7109#8789#0" />
+                <element signature="e#8859#10637#0" />
               </folding>
             </state>
           </provider>
@@ -75,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/dingding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
+            <state relative-caret-position="1080">
               <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -87,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DoubleAverageLines_static.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
+            <state relative-caret-position="1980">
               <caret line="170" selection-start-line="170" selection-end-line="170" />
               <folding>
                 <element signature="e#594#2240#0" />
@@ -97,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/strategyConfig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="306">
+              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -174,17 +170,17 @@
         <option value="$PROJECT_DIR$/CeShi-tmp.py" />
         <option value="$PROJECT_DIR$/DoubleAverageLines.py" />
         <option value="$PROJECT_DIR$/app/authorization.py" />
-        <option value="$PROJECT_DIR$/robot-run.py" />
-        <option value="$PROJECT_DIR$/strategyConfig.py" />
         <option value="$PROJECT_DIR$/DoubleAverageLines_static.py" />
         <option value="$PROJECT_DIR$/app/OrderManager.py" />
+        <option value="$PROJECT_DIR$/robot-run.py" />
+        <option value="$PROJECT_DIR$/strategyConfig.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="38" />
+    <option name="x" value="85" />
     <option name="y" value="23" />
-    <option name="width" value="1754" />
+    <option name="width" value="1585" />
     <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -399,7 +395,8 @@
       <workItem from="1621577162051" duration="175000" />
       <workItem from="1621591666747" duration="10276000" />
       <workItem from="1621645741609" duration="1438000" />
-      <workItem from="1621741148643" duration="5061000" />
+      <workItem from="1621741148643" duration="6034000" />
+      <workItem from="1621915570289" duration="403000" />
     </task>
     <servers />
   </component>
@@ -436,7 +433,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124632000" />
+    <option name="totallyTimeSpent" value="126008000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,16 +445,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1792" height="1044" extended-state="6" />
+    <frame x="0" y="23" width="1792" height="1047" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22057143" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22285715" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.48175967" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48175967" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
@@ -591,16 +588,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/authorization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/dingding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
+        <state relative-caret-position="1080">
           <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -608,19 +598,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robot-run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#24#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DoubleAverageLines_static.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
+        <state relative-caret-position="1980">
           <caret line="170" selection-start-line="170" selection-end-line="170" />
           <folding>
             <element signature="e#594#2240#0" />
@@ -629,21 +609,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strategyConfig.py">
+    <entry file="file://$PROJECT_DIR$/app/authorization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="180">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/OrderManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+        <state relative-caret-position="253">
+          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
           <folding>
             <element signature="e#25#62#0" expanded="true" />
-            <element signature="e#512#1658#0" />
+            <element signature="e#7109#8789#0" />
+            <element signature="e#8859#10637#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot-run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="e#24#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategyConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>

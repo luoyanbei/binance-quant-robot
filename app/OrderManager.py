@@ -249,24 +249,35 @@ class OrderManager(object):
                         msgInfo = "购买结果：\n" + order_result_str
 
                 elif trade_direction == "sell":
-                    # coin_base = "DOGE"
-                    asset_coin = binan.get_spot_asset_by_symbol(self.trade_coin)
-                    print(self.trade_coin + " 资产：")
-                    print(asset_coin)
+                    dictOrder = self.readOrderInfo(orderInfo_path)
 
-                    quantity = self.format_trade_quantity(float(asset_coin["free"]))
+                    if dictOrder is None:
+                        msgInfo = msgInfo + "服务正常4--已无可售"
+                        isDefaultToken = True
+                    else:
 
-                    # 查询当前价格
-                    cur_price = binan.get_ticker_price(self.symbol)
+                        asset_coin = binan.get_spot_asset_by_symbol(self.trade_coin)
+                        print(self.trade_coin + " 资产：")
+                        print(asset_coin)
 
-                    # 卖出
-                    res_order_sell = binan.sell_limit(self.symbol, quantity, cur_price)
-                    # 清理本地订单信息
-                    self.clearOrderInfo(orderInfo_path)
-                    print("出售结果：")
-                    print(res_order_sell)
-                    order_result_str = self.printOrderJsonInfo(res_order_sell)
-                    msgInfo = "卖出结果：\n" + str(order_result_str)
+                        quantity = self.format_trade_quantity(float(asset_coin["free"]))
+
+                        # 查询当前价格
+                        cur_price = binan.get_ticker_price(self.symbol)
+
+                        if quantity <= 0:
+                            msgInfo = msgInfo + "服务正常5--已无可售"
+                            isDefaultToken = True
+                        else:
+                            isDefaultToken = False
+                            # 卖出
+                            res_order_sell = binan.sell_limit(self.symbol, quantity, cur_price)
+                            # 清理本地订单信息
+                            self.clearOrderInfo(orderInfo_path)
+                            print("出售结果：")
+                            print(res_order_sell)
+                            order_result_str = self.printOrderJsonInfo(res_order_sell)
+                            msgInfo = "卖出结果：\n" + str(order_result_str)
 
             else:
                 # msgInfo = msgInfo + str(ts) + "\n"

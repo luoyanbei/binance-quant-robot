@@ -39,8 +39,8 @@ def tasklist():
     # schedule.every().hours.at("54:10").do(binance_func)
     # schedule.every().hours.at("59:10").do(binance_func)
 
-    schedule.every(5).minutes.do(binance_func)
-
+    # 每隔2分钟，执行一次，可自行设置为 5 分钟或其他时间；币安的api接口有请求次数限制，不要太频繁
+    schedule.every(2).minutes.do(binance_func)
 
 
     while True:
