@@ -26,21 +26,8 @@ def tasklist():
     #清空任务
     schedule.clear()
 
-    # schedule.every().hours.at("04:05").do(binance_func)
-    # schedule.every().hours.at("09:10").do(binance_func)
-    # schedule.every().hours.at("14:10").do(binance_func)
-    # schedule.every().hours.at("19:10").do(binance_func)
-    # schedule.every().hours.at("24:05").do(binance_func)
-    # schedule.every().hours.at("29:10").do(binance_func)
-    # schedule.every().hours.at("34:10").do(binance_func)
-    # schedule.every().hours.at("39:10").do(binance_func)
-    # schedule.every().hours.at("44:05").do(binance_func)
-    # schedule.every().hours.at("49:10").do(binance_func)
-    # schedule.every().hours.at("54:10").do(binance_func)
-    # schedule.every().hours.at("59:10").do(binance_func)
-
-    # 每隔2分钟，执行一次，可自行设置为 5 分钟或其他时间；币安的api接口有请求次数限制，不要太频繁
-    schedule.every(2).minutes.do(binance_func)
+    # 每隔1分钟，执行一次，可自行设置为 5 分钟或其他时间；币安的api接口有请求次数限制，不要太频繁
+    schedule.every(1).minutes.do(binance_func)
 
 
     while True:
