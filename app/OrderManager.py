@@ -117,19 +117,19 @@ class OrderManager(object):
             else:
                 return None
 
-        # 比较本次买入提示的str是否重复
-        def judgeToBuyCommand(self, filePath, theToBuyCommand):
-            orderDict = self.readOrderInfo(filePath)
+    # 比较本次买入提示的str是否重复
+    def judgeToBuyCommand(self, filePath, theToBuyCommand):
+        orderDict = self.readOrderInfo(filePath)
 
-            if orderDict is None:
-                return True  # 购买
+        if orderDict is None:
+            return True  # 购买
 
-            if "toBuy" in orderDict:
-                if orderDict["toBuy"] == theToBuyCommand:
-                    print('本次购买时间是 ' + str(theToBuyCommand) + ' ，重复，不执行购买')
-                    return False  # 不执行购买，因为重复
+        if "toBuy" in orderDict:
+            if orderDict["toBuy"] == theToBuyCommand:
+                print('本次购买时间是 ' + str(theToBuyCommand) + ' ，重复，不执行购买')
+                return False  # 不执行购买，因为重复
 
-            return True
+        return True
 
     # 获取 上次买入订单中的价格Price
     def priceOfPreviousOrder(self, filePath):
