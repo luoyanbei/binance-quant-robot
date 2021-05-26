@@ -57,6 +57,7 @@ class OrderManager(object):
         self.exchangeRule = None
 
 
+
     def gain_exchangeRule(self, theSymbol):
         if self.exchangeRule is None:
             dict = binan.exchangeInfo()
@@ -292,4 +293,7 @@ class OrderManager(object):
             msgInfo = msgInfo + str(err_str) + "\n"
 
         finally:
-            msg.dingding_warn(msgInfo, isDefaultToken)
+            if "服务正常" in msgInfo:
+                pass
+            else:
+                msg.dingding_warn(msgInfo, isDefaultToken)

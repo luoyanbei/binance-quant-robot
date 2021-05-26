@@ -12,9 +12,23 @@ import math
 import json,os
 from strategyConfig import binance_market,binance_coinBase,binance_tradeCoin,binance_coinBase_count
 
-
 orderManager = OrderManager(binance_coinBase, binance_coinBase_count,binance_tradeCoin, binance_market)
 
+msgDing = Message()
+
+
+# 发送消息通知
+def sendInfoToDingDing( message, isDefaultToken):
+    # 记录执行时间
+    now = datetime.datetime.now()
+    ts = now.strftime('%Y-%m-%d %H:%M:%S')
+    message = str(ts) + "\n" + message
+    msgDing.dingding_warn(message, isDefaultToken)
+
+# 发送服务器信息
+def sendServiceInfo():
+    str = "服务正常--ok"
+    sendInfoToDingDing(str, True)
 
 
 def binance_func():
@@ -28,6 +42,9 @@ def tasklist():
 
     # 每隔1分钟，执行一次，可自行设置为 5 分钟或其他时间；币安的api接口有请求次数限制，不要太频繁
     schedule.every(1).minutes.do(binance_func)
+
+    # 10分钟发一次服务信息
+    schedule.every(10).minutes.do(sendServiceInfo)
 
 
     while True:
