@@ -68,10 +68,6 @@ ma_y = 60
 
 # 币安
 binance_market = "SPOT"#现货市场
-binance_coinBase = "USDT"#使用USDT作为基础币种，用于购买其他货币；
-# 限制买入时的资金数量，例如：当binance_coinBase=”USDT“时，就是 50个 USDT
-binance_coinBase_count = 50
-binance_tradeCoin = "DOGE"#交易目标是 DOGE 币，
 kLine_type = '15m' # 15分钟k线类型，你可以设置为5分钟K线：5m;1小时为：1h;1天为：1d
 ```
 当 kline 5 向上穿过 kline 60， 则执行买入。
@@ -83,6 +79,29 @@ kLine_type = '15m' # 15分钟k线类型，你可以设置为5分钟K线：5m;1�
 你也可以调整 kLine_type ，来选择 5分钟K线、15分钟K线、30分钟K线、1小时K线、1天K线等；
 
 不同的K线，最终效果也是不一样的。
+
+5、同时交易多币种
+robot-run.py中
+
+创建多个订单管理对象：
+```
+# 使用 USDT 购买 DOGE,限定最多100个USDT
+orderManager_doge = OrderManager("USDT", 100,"DOGE", binance_market)
+# 使用 USDT 购买 ETH,限定最多100个USDT
+orderManager_eth = OrderManager("USDT", 100,"ETH", binance_market)
+```
+
+将orderManager_doge 和 orderManager_eth 加入定时执行的方法中：
+```
+def binance_func():
+    orderManager_doge.binance_func()
+    time.sleep(10)
+    orderManager_eth.binance_func()
+
+```
+
+程序可同时监控 DOGE 和 ETH 的均线，并根据策略执行交易。
+使用时，可根据自身需要，增加其他币种。
 
 
 
