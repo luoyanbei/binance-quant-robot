@@ -23,6 +23,10 @@
 <img width="1643" alt="image" src="https://user-images.githubusercontent.com/18456518/119828150-7b1e9480-bf2c-11eb-9443-d0d6c1f387ab.png">
 这是一个比较震荡的情况，会亏损。
 
+
+使用时，必须根据自身情况，调整 K线 和 均线！！！！
+
+
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
 ## 为什么选择币安交易所
