@@ -6,15 +6,24 @@
 ## 简介
 这是一个数字货币量化交易系统，使用的Binance币安的交易API.
 
-本系统采用双均线交易策略，两条均线出现金叉则买入，出现死叉则卖出。
-
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
 这世上，没有百分百赚钱的方式，量化交易策略只是一个辅助工具。
 
 生死有命，富贵在天！币圈有风险，入市需谨慎！！
 
+## 双均线策略
+以 ETH 为例，5分钟K线数据，均线5 和 均线60 为例：
 
+均线5上穿均线60是金叉，执行买入；
+均线5下穿均线60是死叉，执行卖出；
+![image](https://user-images.githubusercontent.com/18456518/119827775-18c59400-bf2c-11eb-821b-addda37b3b4a.png)
+这是一个比较好的情况，可以赚一点钱。
+
+<img width="1643" alt="image" src="https://user-images.githubusercontent.com/18456518/119828150-7b1e9480-bf2c-11eb-9443-d0d6c1f387ab.png">
+这是一个比较震荡的情况，会亏损。
+
+如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
 
 ## 为什么选择币安交易所
 交易的手续费看起来很少，但是随着交易次数逐步增多，手续费也是一笔不小的开支。
