@@ -150,12 +150,12 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 
 
-## 可加WX进交流群
+## 可加WX交流群
 ![image](https://user-images.githubusercontent.com/18456518/120063569-534d3f00-c09a-11eb-858c-bdd1945a7ef2.png)
 
 
-## 扫描入群，失效联系WX
-![image](https://user-images.githubusercontent.com/18456518/119223858-5a220200-bb2e-11eb-92f4-978b9f035aa4.png)
+## 联系WX
+![image](https://user-images.githubusercontent.com/18456518/120063635-c5be1f00-c09a-11eb-8b48-edb2518ee5c3.png)
 
 
 
