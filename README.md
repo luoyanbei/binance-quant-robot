@@ -151,7 +151,7 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 
 ## 可加WX进交流群
-<img width="513" alt="image" src="https://user-images.githubusercontent.com/18456518/119217849-9b56e980-bb0f-11eb-8caa-f50f9a4a9311.png">
+![image](https://user-images.githubusercontent.com/18456518/120063569-534d3f00-c09a-11eb-858c-bdd1945a7ef2.png)
 
 
 ## 扫描入群，失效联系WX
