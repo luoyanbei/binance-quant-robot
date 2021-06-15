@@ -151,7 +151,8 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 
 ## 可加WX交流群
-![image](https://user-images.githubusercontent.com/18456518/121110602-21796c80-c840-11eb-9ea5-faf65d223554.png)
+![image](https://user-images.githubusercontent.com/18456518/121983189-7fb7c980-cdc3-11eb-8f6c-e46e483a2267.png)
+
 
 
 
