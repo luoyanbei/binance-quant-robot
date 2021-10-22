@@ -7,7 +7,7 @@ from app.authorization import api_key,api_secret
 from app.dingding import Message
 from DoubleAverageLines_static import DoubleAverageLines
 import schedule
-from strategyConfig import ma_x, ma_y, kLine_type
+from strategyConfig import sellStrategy1, sellStrategy2, sellStrategy3 , ma_x, ma_y, isOpenSellStrategy, kLine_type
 
 
 binan = BinanceAPI(api_key,api_secret)
@@ -48,16 +48,14 @@ class ExchangeRule(object):
 
 class OrderManager(object):
 
-    def __init__(self, coinBase, coinBaseCount, tradeCoin, market):
-        self.coin_base = coinBase  # 基础币，例如USDT
-        self.coin_base_count = coinBaseCount  # 买币时最多可用资金量
-        self.trade_coin = tradeCoin  # 买卖币种，例如 DOGER
-        self.market = market  # 市场，例如：现货 "SPOT"
-        self.symbol = tradeCoin + coinBase  # 交易符号，例如"DOGEUSDT"
+    def __init__(self, coinBase, coinBaseCount , tradeCoin, market):
+        self.coin_base = coinBase # 基础币，例如USDT
+        self.coin_base_count = coinBaseCount # 买币时最多可用资金量
+        self.trade_coin = tradeCoin #买卖币种，例如 DOGER
+        self.market = market #市场，例如：现货 "SPOT"
+        self.symbol = tradeCoin+coinBase #交易符号，例如"DOGEUSDT"
         self.exchangeRule = None
-        self.orderInfoSavePath = "./" + self.symbol + "_buyOrderInfo.json"
-
-
+        self.orderInfoSavePath = "./"+ self.symbol +"_buyOrderInfo.json" #订单信息存储路径
 
     def gain_exchangeRule(self, theSymbol):
         if self.exchangeRule is None:
@@ -71,16 +69,100 @@ class OrderManager(object):
 
         # return self.exchangeRule
 
+
+
     #  执行卖出
     def doSellFunc(self,symbol ,quantity, cur_price):
+        print("马上卖出 " + str(symbol)+" "+ str(quantity)+ " 个，单价："+str(cur_price))
+
+        #如果总价值小于10
+        if (quantity*cur_price)<10:
+            quantity = self.format_trade_quantity(11.0/cur_price)
+            if (quantity * cur_price) < 10:
+                quantity = self.format_trade_quantity(13.0 / cur_price)
+                if (quantity * cur_price) < 10:
+                    quantity = self.format_trade_quantity(16.0 / cur_price)
+                    if (quantity * cur_price) < 10:
+                        quantity = self.format_trade_quantity(20.0 / cur_price)
+
         # 卖出
         res_order_sell = binan.sell_limit(symbol, quantity, cur_price)
         print("出售部分结果：")
+        print("量："+str(quantity)+", 价格："+str(cur_price)+", 总价值："+str(quantity*cur_price))
         print(res_order_sell)
         order_result_str = self.printOrderJsonInfo(res_order_sell)
-        msgInfo = "卖出部分结果：\n" + str(order_result_str)
+        msgInfo = "卖出结果：\n" + str(order_result_str)
 
         return msgInfo
+
+    #分批出售策略
+    def sellStrategy(self, filePath):
+        msgInfo = ""
+        dictOrder = self.readOrderInfo(filePath)
+        if dictOrder is None:
+            return msgInfo
+
+        # 读取上次买入的价格
+        buyPrice = self.priceOfPreviousOrder(self.orderInfoSavePath)
+        if buyPrice > 0:
+            # 查询当前价格
+            cur_price = binan.get_ticker_price(self.symbol)
+            print("当前 "+str(self.symbol)+" 价格："+str(cur_price))
+            #查询当前资产
+            asset_coin = binan.get_spot_asset_by_symbol(self.trade_coin)
+            print(self.trade_coin + " 资产2：")
+            print(asset_coin)
+
+            if "sellStrategy3" in dictOrder:
+                print("sellStrategy--sellStrategy3--1")
+                tmpSellStrategy = dictOrder['sellStrategy3']
+                print("买入价格："+str(buyPrice) + " * " + str(tmpSellStrategy) + " = " + str(buyPrice * tmpSellStrategy['profit'])+" 和 当前价格：" + str(cur_price)+" 比较")
+                if buyPrice * tmpSellStrategy['profit'] <= cur_price:
+                    print("sellStrategy--sellStrategy3--2")
+
+                    quantity = self.format_trade_quantity(float(asset_coin["free"])*tmpSellStrategy['sell'])
+                    # 卖出
+                    msgInfo= msgInfo + self.doSellFunc(self.symbol,quantity,cur_price)
+                    del dictOrder['sellStrategy3']
+                    self.writeOrderInfo(filePath, dictOrder)
+                    dictOrder = self.readOrderInfo(filePath)
+                    print("部分卖出--sellStrategy3")
+
+            if "sellStrategy2" in dictOrder:
+                tmpSellStrategy = dictOrder['sellStrategy2']
+                print("sellStrategy--sellStrategy2--1")
+                print("买入价格："+str(buyPrice) + " * " + str(tmpSellStrategy) + " = " + str(buyPrice * tmpSellStrategy['profit'])+" 和 当前价格：" + str(cur_price)+" 比较")
+
+                if buyPrice * tmpSellStrategy['profit'] <= cur_price:
+                    print("sellStrategy--sellStrategy2--2")
+
+                    quantity = self.format_trade_quantity(float(asset_coin["free"]) * tmpSellStrategy['sell'])
+                    # 卖出
+                    msgInfo = msgInfo + self.doSellFunc(self.symbol, quantity, cur_price)
+                    del dictOrder['sellStrategy2']
+                    self.writeOrderInfo(filePath, dictOrder)
+                    dictOrder = self.readOrderInfo(filePath)
+                    print("部分卖出--sellStrategy2")
+
+            if "sellStrategy1" in dictOrder:
+                tmpSellStrategy = dictOrder['sellStrategy1']
+                print("sellStrategy--sellStrategy1--1")
+                print("买入价格：" + str(buyPrice) + " * " + str(tmpSellStrategy) + " = " + str(
+                    buyPrice * tmpSellStrategy['profit']) + " 和 当前价格：" + str(cur_price) + " 比较")
+
+                if buyPrice * tmpSellStrategy['profit'] <= cur_price:
+                    print("sellStrategy--sellStrategy1--2")
+
+                    quantity = self.format_trade_quantity(float(asset_coin["free"]) * tmpSellStrategy['sell'])
+                    # 卖出
+                    msgInfo = msgInfo + self.doSellFunc(self.symbol, quantity, cur_price)
+                    del dictOrder['sellStrategy1']
+                    self.writeOrderInfo(filePath, dictOrder)
+                    dictOrder = self.readOrderInfo(filePath)
+                    print("部分卖出--sellStrategy1")
+
+        return msgInfo
+
 
 
     # 格式化交易信息结果
@@ -124,14 +206,17 @@ class OrderManager(object):
         orderDict = self.readOrderInfo(filePath)
 
         if orderDict is None:
-            return True  # 购买
+            return True # 购买
 
         if "toBuy" in orderDict:
             if orderDict["toBuy"] == theToBuyCommand:
-                print('本次购买时间是 ' + str(theToBuyCommand) + ' ，重复，不执行购买')
-                return False  # 不执行购买，因为重复
+                print('本次购买时间是 '+str(theToBuyCommand)+' ，重复，不执行购买')
+                return False #不执行购买，因为重复
 
         return True
+
+
+
 
     # 获取 上次买入订单中的价格Price
     def priceOfPreviousOrder(self, filePath):
@@ -160,6 +245,11 @@ class OrderManager(object):
 
 
     def writeOrderInfoWithSellStrategy(self,filePath, dictObj):
+
+        if isOpenSellStrategy:
+            dictObj["sellStrategy1"] = sellStrategy1
+            dictObj["sellStrategy2"] = sellStrategy2
+            dictObj["sellStrategy3"] = sellStrategy3
 
         self.writeOrderInfo(filePath, dictObj)
 
@@ -225,14 +315,14 @@ class OrderManager(object):
 
                         # coin_base = "USDT"
                         asset_coin = binan.get_spot_asset_by_symbol(self.coin_base)
-                        print(self.coin_base + " 资产：" + str(asset_coin))
+                        print(self.coin_base + " 资产："+str(asset_coin))
 
                         # 购买，所用资金量
                         coin_base_count = float(asset_coin["free"])
                         if self.coin_base_count <= coin_base_count:
                             coin_base_count = self.coin_base_count
 
-                        print("binance_func--可用资金量coin_base_count= " + str(coin_base_count))
+                        print("binance_func--可用资金量coin_base_count= "+str(coin_base_count))
                         # 查询当前价格
                         cur_price = binan.get_ticker_price(self.symbol)
                         # 购买量
@@ -241,6 +331,7 @@ class OrderManager(object):
                         res_order_buy = binan.buy_limit(self.symbol, quantity, cur_price)
                         print("购买结果：")
                         print(res_order_buy)
+
 
                         # 存储买入订单信息
                         if res_order_buy is not None and "symbol" in res_order_buy:
@@ -252,6 +343,7 @@ class OrderManager(object):
 
                 elif trade_direction == "sell":
                     dictOrder = self.readOrderInfo(self.orderInfoSavePath)
+
 
                     if dictOrder is None:
                         msgInfo = msgInfo + "服务正常4--已无可售"
@@ -267,7 +359,7 @@ class OrderManager(object):
                         # 查询当前价格
                         cur_price = binan.get_ticker_price(self.symbol)
 
-                        if quantity <= 0:
+                        if quantity<=0:
                             msgInfo = msgInfo + "服务正常5--已无可售"
                             isDefaultToken = True
                         else:
@@ -282,10 +374,15 @@ class OrderManager(object):
                             msgInfo = "卖出结果：\n" + str(order_result_str)
 
             else:
-                # msgInfo = msgInfo + str(ts) + "\n"
-                print("暂不执行任何交易2")
-                msgInfo = msgInfo + "服务正常2"
-                isDefaultToken = True
+                if isOpenSellStrategy:
+                    print("开启卖出策略---1")
+                    msgInfo = self.sellStrategy(self.orderInfoSavePath)
+
+                if msgInfo == "":
+                    msgInfo = msgInfo + str(ts) + "\n"
+                    print("暂不执行任何交易2")
+                    msgInfo = msgInfo + "服务正常2"
+                    isDefaultToken = True
 
             print("-----------------------------------------------\n")
         except Exception as ex:

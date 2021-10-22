@@ -9,15 +9,14 @@ import datetime
 import schedule
 import math
 import json,os
-from strategyConfig import binance_market
+from strategyConfig import binance_market,binance_coinBase,binance_tradeCoin, binance_coinBase_count
 
-# 使用 USDT 购买 DOGE,限定最多100个USDT
-orderManager_doge = OrderManager("USDT", 100,"DOGE", binance_market)
-# 使用 USDT 购买 ETH,限定最多100个USDT
+
+orderManager = OrderManager("USDT", 100,"DOGE", binance_market)
+
 orderManager_eth = OrderManager("USDT", 100,"ETH", binance_market)
 
 msgDing = Message()
-
 
 # 发送消息通知
 def sendInfoToDingDing( message, isDefaultToken):
@@ -27,28 +26,28 @@ def sendInfoToDingDing( message, isDefaultToken):
     message = str(ts) + "\n" + message
     msgDing.dingding_warn(message, isDefaultToken)
 
-# 发送服务器信息
+
+def binance_func():
+    orderManager.binance_func()
+    # time.sleep(5)
+    # orderManager_eth.binance_func()
+
+
 def sendServiceInfo():
     str = "服务正常--ok"
     sendInfoToDingDing(str, True)
-
-
-def binance_func():
-    orderManager_doge.binance_func()
-    time.sleep(10)
-    orderManager_eth.binance_func()
-
 
 # 创建循环任务
 def tasklist():
     #清空任务
     schedule.clear()
+    #创建一个按秒间隔执行任务
+    # schedule.every().hours.at("04:05").do(binance_func)
 
-    # 每隔1分钟，执行一次，可自行设置为 5 分钟或其他时间；币安的api接口有请求次数限制，不要太频繁
-    schedule.every(1).minutes.do(binance_func)
+    #
+    schedule.every(15).seconds.do(binance_func)
 
-    # 10分钟发一次服务信息
-    schedule.every(10).minutes.do(sendServiceInfo)
+    schedule.every(20).minutes.do(sendServiceInfo)
 
 
     while True:
@@ -61,4 +60,6 @@ if __name__ == "__main__":
 
     # 启动，先从币安获取交易规则， https://api.binance.com/api/v3/exchangeInfo
     tasklist()
+
+    # binance_func()
 

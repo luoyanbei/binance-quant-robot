@@ -10,6 +10,7 @@ except ImportError:
 
 class BinanceAPI(object):
     BASE_URL = "https://www.binance.com/api/v1"
+    FUTURE_URL = "https://fapi.binance.com"
     BASE_URL_V3 = "https://api.binance.com/api/v3"
     PUBLIC_URL = "https://www.binance.com/exchange/public/product"
 
@@ -203,6 +204,23 @@ class BinanceAPI(object):
 
     def _format(self, price):
         return "{:.8f}".format(price)
+
+
+    # 合约
+    def market_future_order(self, side, symbol, quantity,positionSide):
+
+        ''' 合约市价单
+            :param side: 做多or做空 BUY SELL
+            :param symbol:币种类型。如：BTCUSDT、ETHUSDT
+            :param quantity: 购买量
+            :param positionSide: 双向持仓 BUY-LONG 开多 SELL-SHORT 开空
+            :param price: 开仓价格
+        '''
+        path = "%s/fapi/v1/order" % self.FUTURE_URL
+        params = self._order(symbol, quantity, side, positionSide)
+        return self._post(path, params)
+
+
 
 if __name__ == "__main__":
     instance = BinanceAPI(api_key,api_secret)
