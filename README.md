@@ -44,7 +44,7 @@
 ## 运行环境
 python3
 
-由于交易所的api在大陆无法访问，需要科学上网(若无，可用[muncloud](https://www.muncloud.dog/aff.php?aff=2302))
+由于交易所的api在大陆无法访问，需要科学上网
 
 
 
@@ -151,7 +151,7 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 
 ## 可加WX交流群
-![image](https://user-images.githubusercontent.com/18456518/138398892-94a65652-941e-4cbb-bb85-2fb9a7bdd468.png)
+![image](https://user-images.githubusercontent.com/18456518/156103926-3de63513-0bc8-4674-889d-83b7283ed4cf.png)
 
 
 
