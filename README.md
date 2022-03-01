@@ -44,7 +44,7 @@
 ## 运行环境
 python3
 
-由于交易所的api在大陆无法访问，需要科学上网
+由于交易所的api在大陆无法访问，[需要科学上网](https://www.xlinkworld.dog/aff.php?aff=3010)
 
 
 
