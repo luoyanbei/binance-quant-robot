@@ -153,6 +153,8 @@ Linux, 1核CPU, 2G内存(1G也可)
 ## 可加WX交流群
 ![image](https://user-images.githubusercontent.com/18456518/169659672-9a8457ce-57f3-47b4-a272-cb6a0ae1bf08.png)
 
+## 另一个实盘策略(非双均线)，信号接收钉钉群，感兴趣的可加入，查看交易信号
+![image](https://user-images.githubusercontent.com/18456518/169739348-a3d2dd32-2556-4d84-8f0e-e0e618728eeb.png)
 
 
 
