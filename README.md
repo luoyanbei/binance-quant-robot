@@ -1,5 +1,5 @@
 # binance-quant-robot
-数字货币，币安Binance, 比特币BTC 以太坊ETH 狗币DOGE 屎币SHIB 量化交易系统 火币 OKEX
+数字货币，币安Binance, 比特币BTC 以太坊ETH 莱特币LTC 狗币DOGE 屎币SHIB 量化交易系统 火币 OKEX 交易策略 量化策略 自动交易
 
 
 
@@ -149,7 +149,7 @@ Linux, 1核CPU, 2G内存(1G也可)
 
 
 ## 可加WX交流群
-![image](https://user-images.githubusercontent.com/18456518/169659672-9a8457ce-57f3-47b4-a272-cb6a0ae1bf08.png)
+![image](https://user-images.githubusercontent.com/18456518/170512384-a0dd25e7-6c58-4423-ab66-67ba29297dae.png)
 
 
 
