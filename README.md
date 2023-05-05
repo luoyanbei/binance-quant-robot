@@ -1,7 +1,7 @@
 # binance-quant-robot
 数字货币，币安Binance, 比特币BTC 以太坊ETH 莱特币LTC 狗币DOGE 屎币SHIB 量化交易系统 火币 OKEX 交易策略 量化策略 自动交易
 
-
+如果国内不能访问币安api，需要科学上网，->[注册科学上网](https://www.xlinkworld.me/aff.php?aff=3010)
 
 ## 简介
 这是一个数字货币量化交易系统，使用的Binance币安的交易API.
@@ -28,6 +28,7 @@
 
 
 如果你还没有币安账号：[注册页面](https://accounts.binancezh.io/zh-CN/register?ref=FJO3SX0X)（通过链接注册，享受交易返现优惠政策）
+
 
 ## 为什么选择币安交易所
 交易的手续费看起来很少，但是随着交易次数逐步增多，手续费也是一笔不小的开支。
