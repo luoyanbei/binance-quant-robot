@@ -18,6 +18,12 @@ orderManager_eth = OrderManager("USDT", 100,"ETH", binance_market)
 
 msgDing = Message()
 
+orderManagers = []
+
+for market in binance_tradeCoin:
+    orderManager = OrderManager(binance_coinBase, binance_coinBase_count, market, binance_market)
+    orderManagers.append(orderManager)
+
 # 发送消息通知
 def sendInfoToDingDing( message, isDefaultToken):
     # 记录执行时间
@@ -28,9 +34,13 @@ def sendInfoToDingDing( message, isDefaultToken):
 
 
 def binance_func():
-    orderManager.binance_func()
-    # time.sleep(5)
-    # orderManager_eth.binance_func()
+    """
+    该函数用于遍历orderManagers列表中的每个orderManager对象，并调用其binance_func方法。
+    每次调用binance_func方法后，程序会暂停5秒。
+    """
+    for orderManager in orderManagers:
+        orderManager.binance_func()
+        time.sleep(5)
 
 
 def sendServiceInfo():
